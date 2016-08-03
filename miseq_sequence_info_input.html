@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入Miseq Sequencing Information</h1>
+		<hr>
+		 
+			<form method="post" action="miseq_sequence_info_submit.php">
+				<table>
+				<tr>
+					<td>样品文库编号：<input type="text" name="sample_library_m_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>测序类型：<input type="text" name="sequence_type" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>上机浓度（pM）：<input type="number" step=0.00000001 name="onto_concentration" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>R1 Primer：<input type="text" name="r1_primer" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Index Primer：<input type="text" name="index_primer" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>R2 Primer：<input type="text" name="r2_primer" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Required reads(M)：<input type="number" step=0.00000001 name="require_read" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Data Path on Mars：<input type="text" name="data_path_on_mars" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+
+				</table>
+			</form>
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>

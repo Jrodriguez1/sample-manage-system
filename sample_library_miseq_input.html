@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入文库Miseq信息</h1>
+		<hr>
+		 
+			<form method="post" action="sample_library_miseq_submit.php">
+				<table>
+				<tr>
+					<td>原始文库编号：<input type="text" name="sample_library_m_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>Onto Miseq date：<input type="date" name="onto_miseq_date" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>样品名称：<input type="text" name="sample_name" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>项目信息：<input type="text" name="project_info" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Resource：<input type="text" name="resource" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Lib.Prep.input：<input type="number" name="lib_prep_input" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>The method of extraction and library preparation：<input type="text" name="extract_lib_prep_method" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>I7_Index_ID：<input type="text" name="i7_index_id" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>index1：<input type="text" name="index1" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>I5_Index_ID：<input type="text" name="i5_index_id" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>index2：<input type="text" name="index2" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Lib Qubit conc.（ng/ul）：<input type="number" step=0.00000001 name="lib_qubit_concentration" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Lib qPCR Conc.(nM)：<input type="number" step=0.00000001 name="lib_qpcr_concentration" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Library Wiki Path：<input type="text" name="library_wiki_path"></td>
+				</tr>
+
+				<tr>
+					<td>备注：<input type="text" name="remark"></td>
+				</tr>
+
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+
+				</table>
+			</form>
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>

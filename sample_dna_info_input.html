@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入样本DNA保存信息</h1>
+		<hr>
+		 
+			<form method="post" action="sample_dna_info_submit.php">
+				<table>
+				<tr>
+					<td>样本编号：<input type="text" name="sample_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>样本DNA编号：<input type="text" name="sample_dna_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>样本名称：<input type="text" name="sample_name" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>管盖简写：<input type="text" name="short_name" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>存放温度：<input type="text" list="sample_temperature" name="sample_temperature" required="required"></td>
+					<datalist id="sample_temperature">
+						<option label="常温" value="常温" />
+						<option label="4℃" value="4℃" />
+						<option label="-20℃" value="-20℃" />
+						<option label="-80℃" value="-80℃" />
+					</datalist>
+				</tr>
+
+				<tr>
+					<td>存放冰箱层：<input type="text" list="fridge_layer" name="fridge_layer"></td>
+					<datalist id="fridge_layer">
+						<option label="第一层" value="第一层" />
+						<option label="第二层" value="第二层" />
+						<option label="第三层" value="第三层" />
+						<option label="第四层" value="第四层" />
+					</datalist>
+				</tr>
+
+				<tr>
+					<td>存放位置：<input type="text" name="save_position" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>提取量（ul）：<input type="number" name="extract_amount" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>qubit浓度（ng/ul）：<input type="number" step=0.00000001 name="qubit_concentration" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>提取方法：<input type="text" name="extract_method" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>提取人：<input type="text" name="extract_person" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>提取时间：<input type="date" name="extract_date" required="required"></td>
+				</tr>
+				
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+
+				</table>
+			</form>
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入文库NextSeq信息</h1>
+		<hr>
+		 
+			<form method="post" action="sample_library_nextseq_run_submit.php">
+				<table>
+				<tr>
+					<td>原始文库编号：<input type="text" name="sample_library_m_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>Onto NextSeq date：<input type="date" name="onto_nextseq_date" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>提交人：<input type="text" name="submitter" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>样本名称：<input type="text" name="sample_name" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Project info.：<input type="text" name="project_info" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Seq mode：<input type="text" name="seq_mode" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>Required reads(M)：<input type="number" name="require_read" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>I7_Index_ID：<input type="text" name="i7_index_id" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>index1：<input type="text" name="index1" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>I5_Index_ID：<input type="text" name="i5_index_id" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>index2：<input type="text" name="index2" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>备注：<input type="text" name="remark"></td>
+				</tr>
+
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+
+				</table>
+			</form>
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>

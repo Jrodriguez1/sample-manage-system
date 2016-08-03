@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入样本RNA使用信息</h1>
+		<hr>
+		 
+			<form method="post" action="rna_use_info_submit.php">
+				<table>
+				<tr>
+					<td>样品RNA编号：<input type="text" name="sample_rna_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>领取时间：<input type="date" name="fetch_date" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>领取人：<input type="text" name="fetch_person" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>归还时间：<input type="date" name="return_date" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>归还人：<input type="text" name="return_person" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>使用量（ul）：<input type="number" name="usage_amount" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>样本剩余量（ul）：<input type="number" name="rest_amount" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>备注：<input type="text" name="remark"></td>
+				</tr>
+				
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+
+				</table>
+			</form>
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>
