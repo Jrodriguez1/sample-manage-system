@@ -1,55 +1,36 @@
 <?php
+	// 要命了 notice 也会出来 调试用
+	// error_reporting(E_ALL); 
+	// ini_set('display_errors', '1'); 
+	// ini_set('error_log', dirname(__FILE__) . '/error_log.txt'); //将出错信息输出到一个文本文件 #引入接口文件，其实你懂的，就是一个类
+
 	include 'C:/coreseek-4.1-win32/api/sphinxapi.php';
+	include 'search_submit.php';
 
-	header("content-type:text/html;charset=utf-8");
-	 
-	//开启session
-	session_start();
-
+	//获取上个页面输入的信息
 	$search_info = $_POST['search_info'];
 	$select_data = $_POST['select_data'];
-	
-	//实例化
-	$sphinx = new SphinxClient();
 
-	//sphinx的主机名和端口
-	$sphinx->SetServer ( 'localhost', 9312 );
+	$sph = new SphinxClient();            //实例化 sphinx 对象
+	$sph->SetServer('localhost',9312);    //连接9312端口
+	$sph->SetMatchMode(SPH_MATCH_ANY);    //设置匹配方式
+	$sph->SetSortMode(SPH_SORT_RELEVANCE);    //查询结果根据相似度排序
+	$sph->SetArrayResult(true);                //设置结果返回格式,true以数组,false以PHP hash格式返回，默认为false
+	$sph->SetLimits(0, 20, 1000);  //匹配结果的偏移量，参数的意义依次为：起始位置，返回结果条数，最大匹配条数
+	$sph->SetMaxQueryTime(10);   //最大搜索时间
 
-	//设置返回结果集为php数组格式
-	$sphinx->SetArrayResult ( true );
+	$index = '*'; //索引源是配置文件中的 index 类，如果有多个索引源可使用,号隔开：'email,diary' 或者使用'*'号代表全部索引源
+	$result = $sph->Query ($search_info, $index); 
+	$result = $result['matches'];
+	$result = $result['0'];
+	$result = $result['id'];
 
-	//匹配结果的偏移量，参数的意义依次为：起始位置，返回结果条数，最大匹配条数
-	$sphinx->SetLimits(0, 20, 1000);
+	get_data($result, $select_data);
 
-	//最大搜索时间
-	$sphinx->SetMaxQueryTime(10);
-
-	//执行简单的搜索，这个搜索将会查询所有字段的信息，要查询指定的字段请继续看下文
-	$index = 'sample' //索引源是配置文件中的 index 类，如果有多个索引源可使用,号隔开：'email,diary' 或者使用'*'号代表全部索引源
-	$result = $sphinx->query ('asd', $index); 
-	// echo '<pre>';
-	// print_r($result);
-	// echo '</pre>';
-
-	//释放连接资源
-	//mysql_close($conn);
-
-	//header("Location: http://localhost/index.html?id=".$id); 
-
-
-
-	// //添加用户信息到数据库
-	// $test = mysql_query($sqlinsert);
-	// if ($test == 1) {
-	// 	echo "数据输入成功";
-	// } else {
-	// 	echo "数据输入失败，请检查样本编号是否有误";
-	// }
-
-
+	// $id = $result["matches"];
+	// echo $id;
 
 ?>
-
 	<hr>
 
 	<form method="post" action="fullsearch.html">
