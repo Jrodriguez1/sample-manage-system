@@ -32,7 +32,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_capture_library_info values('{$sample_library_m_id}','{$sample_capture_library_id}','{$capture_name}','{$sample_name}','{$library_panel}','{$barcode_index}','{$library_size}','{$qubit_concentration}','{$qpcr}','{$library_volume}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$capture_date}','{$capture_man}','{$remark}')";
+	$sqlinsert="insert into sample_capture_library_info (sample_library_m_id, sample_capture_library_id, capture_name, sample_name, library_panel, barcode_index, library_size, qubit_concentration, qpcr, library_volume, sample_temperature, fridge_layer, save_position, capture_date, capture_man, remark) values('{$sample_library_m_id}','{$sample_capture_library_id}','{$capture_name}','{$sample_name}','{$library_panel}','{$barcode_index}','{$library_size}','{$qubit_concentration}','{$qpcr}','{$library_volume}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$capture_date}','{$capture_man}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

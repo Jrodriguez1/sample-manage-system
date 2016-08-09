@@ -24,7 +24,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into rna_use_info values('{$sample_rna_id}','{$fetch_date}','{$fetch_person}','{$return_date}','{$return_person}','{$usage_amount}','{$rest_amount}','{$remark}')";
+	$sqlinsert="insert into rna_use_info (sample_rna_id, fetch_date, fetch_person, return_date, return_person, usage_amount, rest_amount, remark) values('{$sample_rna_id}','{$fetch_date}','{$fetch_person}','{$return_date}','{$return_person}','{$usage_amount}','{$rest_amount}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

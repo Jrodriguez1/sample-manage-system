@@ -24,7 +24,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into miseq_sequence_info values('{$sample_library_m_id}','{$sequence_type}','{$onto_concentration}','{$r1_primer}','{$index_primer}','{$r2_primer}','{$require_read}','{$data_path_on_mars}')";
+	$sqlinsert="insert into miseq_sequence_info (sample_library_m_id, sequence_type, onto_concentration, r1_primer, index_primer, r2_primer, require_read, data_path_on_mars) values('{$sample_library_m_id}','{$sequence_type}','{$onto_concentration}','{$r1_primer}','{$index_primer}','{$r2_primer}','{$require_read}','{$data_path_on_mars}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

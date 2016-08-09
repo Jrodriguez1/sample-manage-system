@@ -52,7 +52,7 @@
 	$check=mysql_query($corrinsert);
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_library_info values('{$sample_library_id}','{$sample_name}','{$short_name}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$library_volumn}','{$library_set_date}','{$set_man}','{$library_panel}','{$barcode_index}','{$direction}','{$library_size}','{$qubit_concentration}','{$qpcr}','{$remark}')";
+	$sqlinsert="insert into sample_library_info (sample_library_id, sample_name, short_name, sample_temperature, fridge_layer, save_position, library_volumn, library_set_date, set_man, library_panel, barcode_index, direction, library_size, qubit_concentration, qpcr, remark) values('{$sample_library_id}','{$sample_name}','{$short_name}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$library_volumn}','{$library_set_date}','{$set_man}','{$library_panel}','{$barcode_index}','{$direction}','{$library_size}','{$qubit_concentration}','{$qpcr}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);
