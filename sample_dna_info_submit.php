@@ -19,7 +19,7 @@
 	$extract_date = $_POST['extract_date'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
