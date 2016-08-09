@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<title>输入页面</title>
+			<meta content-type:"localhost/html" charset="utf-8">
+		</head>
+	 
+		<body>
+			<h1>输入整合样本信息</h1>
+		<hr>
+		 
+			<form method="post" action="sample_integration_submit.php">
+				<table>
+				<tr>
+					<td>整合样本编号：<input type="text" name="sample_integrate_id" required="required"></td>
+				</tr>
+				 
+				<tr>
+					<td>整合样本名称：<input type="text" name="sample_integrate_name" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>整合日期：<input type="date" name="sample_date" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>样本量：<input type="text" name="sample_number" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>存放温度：<input type="text" list="sample_temperature" name="sample_temperature" required="required"></td>
+					<datalist id="sample_temperature">
+						<option label="常温" value="常温" />
+						<option label="4℃" value="4℃" />
+						<option label="-20℃" value="-20℃" />
+						<option label="-80℃" value="-80℃" />
+					</datalist>
+				</tr>
+
+				<tr>
+					<td>存放冰箱层：<input type="text" list="fridge_layer" name="fridge_layer"></td>
+					<datalist id="fridge_layer">
+						<option label="第一层" value="第一层" />
+						<option label="第二层" value="第二层" />
+						<option label="第三层" value="第三层" />
+						<option label="第四层" value="第四层" />
+					</datalist>
+				</tr>
+
+				<tr>
+					<td>存放位置：<input type="text" name="save_position" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>是否备份：
+					是: 
+					<input type="radio" name="is_backup" value="1" checked="checked">
+					否: 
+					<input type="radio" name="is_backup" value="0"></td>
+				</tr>
+
+				<tr>
+					<td>是否重送样：
+					是: 
+					<input type="radio" name="is_resample" value="1" checked="checked">
+					否: 
+					<input type="radio" name="is_resample" value="0"></td>
+				</tr>
+
+				<tr>
+					<td>样本负责人：<input type="text" name="man_in_charge" required="required"></td>
+				</tr>
+
+				<tr>
+					<td>备注：<input type="text" name="remark"></td>
+				</tr>
+
+				</table>
+
+				<table>
+					<h2>输入检测信息</h2>
+					<tr>
+						<td>基因：<input type="text" name="gene"></td>
+					</tr>
+
+					<tr>
+						<td>位点：<input type="text" name="locus"></td>
+					</tr>
+
+					<tr>
+						<td>突变频率：<input type="text" name="mutation_frequency"></td>
+					</tr>
+
+					<tr>
+						<td>方法学：<input type="text" name="method"></td>
+					</tr>
+
+					<tr>
+						<td>试剂盒厂家：<input type="text" name="kit_manufacturer"></td>
+					</tr>
+
+					<tr>
+						<td>试剂盒名称：<input type="text" name="kit_name"></td>
+					</tr>
+				</table>
+
+				<table>
+					<h2>输入包含样本</h2>
+					<hr>
+					<tr>
+						<td>包含样本编号（分号隔开，不要用中文分号）：<input type="text" name="integration_sample_id" required="required"></td>
+					</tr>
+				</table>
+				<tr>
+					<td><input type="submit" value="提交"><input type="reset" value="重置"></td> 
+				</tr>
+			</form>
+
+
+			<form method="post" action="index.html">
+				<td><input type="submit" value="回到首页"></td> 
+			</form>
+
+		</body>
+	</html>
