@@ -31,7 +31,7 @@
 	$remark = $_POST['remark'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
@@ -40,7 +40,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into client_info values('{$sample_id}','{$collect_hospital}','{$department}','{$admission_number}','{$bed_number}','{$diagnosis}','{$gene_detection}','{$conclusion}','{$sexuality}','{$age}','{$doctor}','{$in_hospital_date}','{$sampling_position}','{$sampling_date}','{$surgery_date}','{$cancer_name}','{$cancer_stage}','{$pathological_result}','{$molecular_result}','{$immunohistochemical_result}','{$address}','{$phone}','{$family_information}','{$remark}')";
+	$sqlinsert="insert into client_info (sample_id, collect_hospital, department, admission_number, bed_number, diagnosis, gene_detection, conclusion, sexuality, age, doctor, in_hospital_date, sampling_position, sampling_date, surgery_date, cancer_name, cancer_stage, pathological_result, molecular_result, immunohistochemical_result, address, phone, family_information, remark) values('{$sample_id}','{$collect_hospital}','{$department}','{$admission_number}','{$bed_number}','{$diagnosis}','{$gene_detection}','{$conclusion}','{$sexuality}','{$age}','{$doctor}','{$in_hospital_date}','{$sampling_position}','{$sampling_date}','{$surgery_date}','{$cancer_name}','{$cancer_stage}','{$pathological_result}','{$molecular_result}','{$immunohistochemical_result}','{$address}','{$phone}','{$family_information}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

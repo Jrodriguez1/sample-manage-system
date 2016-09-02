@@ -19,7 +19,7 @@
 	$extract_date = $_POST['extract_date'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
@@ -34,7 +34,7 @@
 	$check=mysql_query($corrinsert);
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_dna_info values('{$sample_dna_id}','{$sample_name}','{$short_name}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$extract_amount}','{$qubit_concentration}','{$extract_method}','{$extract_person}','{$extract_date}')";
+	$sqlinsert="insert into sample_dna_info (sample_dna_id, sample_name, short_name, sample_temperature, fridge_layer, save_position, extract_amount, qubit_concentration, extract_method, extract_person, extract_date) values('{$sample_dna_id}','{$sample_name}','{$short_name}','{$sample_temperature}','{$fridge_layer}','{$save_position}','{$extract_amount}','{$qubit_concentration}','{$extract_method}','{$extract_person}','{$extract_date}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

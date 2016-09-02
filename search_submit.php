@@ -1,8 +1,18 @@
 <?php
+	error_reporting(0);
 	header("content-type:text/html;charset=utf-8");
 	 
-	//开启session
-	session_start();
+	// //开启session
+	// session_start();
+
+	// //通过php连接到mysql数据库
+	// $conn=mysql_connect("127.0.0.1:3306","root","");
+
+	// //选择数据库
+	// mysql_select_db("sampledb");
+
+	// //设置客户端和连接字符集
+	// mysql_query("set names utf8");
 
 	function corr_entry($entry_name) {
 		switch ($entry_name) {
@@ -46,46 +56,78 @@
 			echo "未选择查询数据";
 		}
 	}
- 
-	$search_info = $_POST['search_info'];
-	$search_type = $_POST['search_type'];
-	$select_data = $_POST['select_data'];
 
-	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	//SQL获取信息
+	function get_data($id, $select_data) {
+		//开启session
+		session_start();
 
-	//选择数据库
-	mysql_select_db("sampledb");
+		//通过php连接到mysql数据库
+		$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 
-	//设置客户端和连接字符集
-	mysql_query("set names utf8");
+		//选择数据库
+		mysql_select_db("sampledb");
 
-	if ($search_type = "sample_id") {
-		//通过php进行insert操作
-		$sqlselect="select * from sample where sample_id = '{$search_info}' order by id";
-	} elseif ($search_type = "sample_name") {
-		$sqlselect="select * from sample where sample_name = '{$search_info}' order by id";
-	} else {
-		$sqlselect="select * from sample where order_id = '{$search_info}' order by id";
-	}
+		//设置客户端和连接字符集
+		mysql_query("set names utf8");
 
-	$result=mysql_query($sqlselect);
-	if ($result = mysql_fetch_array($result)) {
-		$i = 0;
-		while ($select_data[$i]) {
-			corr_entry($select_data[$i]);
-			echo $result[$select_data[$i]];
-			echo "<br>";
-			$i = $i + 1;
+		// echo $id;
+		// print_r($select_data);
+		$sqlselect="select * from sample where id = '{$id}' order by id";
+		$result=mysql_query($sqlselect);
+		if ($result = mysql_fetch_array($result)) {
+			$i = 0;
+			while ($select_data[$i]) {
+				corr_entry($select_data[$i]);
+				echo $result[$select_data[$i]];
+				echo "<br>";
+				$i = $i + 1;
+			}
+		} else {
+			echo "查询失败，请请检查输入信息是否有误";
 		}
-	} else {
-		echo "查询失败，请请检查输入信息是否有误";
+		mysql_close($conn);
 	}
+ 
+	// $search_info = $_POST['search_info'];
+	// $search_type = $_POST['search_type'];
+	// $select_data = $_POST['select_data'];
+
+	// //通过php连接到mysql数据库
+	// $conn=mysql_connect("127.0.0.1:3306","root","");
+
+	// //选择数据库
+	// mysql_select_db("sampledb");
+
+	// //设置客户端和连接字符集
+	// mysql_query("set names utf8");
+
+	// if ($search_type = "sample_id") {
+	// 	//通过php进行insert操作
+	// 	$sqlselect="select * from sample where sample_id = '{$search_info}' order by id";
+	// } elseif ($search_type = "sample_name") {
+	// 	$sqlselect="select * from sample where sample_name = '{$search_info}' order by id";
+	// } else {
+	// 	$sqlselect="select * from sample where order_id = '{$search_info}' order by id";
+	// }
+
+	// $result=mysql_query($sqlselect);
+	// if ($result = mysql_fetch_array($result)) {
+	// 	$i = 0;
+	// 	while ($select_data[$i]) {
+	// 		corr_entry($select_data[$i]);
+	// 		echo $result[$select_data[$i]];
+	// 		echo "<br>";
+	// 		$i = $i + 1;
+	// 	}
+	// } else {
+	// 	echo "查询失败，请请检查输入信息是否有误";
+	// }
 	
 
 	//echo $select_data[0];	
 	//释放连接资源
-	mysql_close($conn);
+	// mysql_close($conn);
 
 	//header("Location: http://localhost/index.html?id=".$id); 
 
@@ -102,13 +144,3 @@
 
 
 ?>
-
-	<hr>
-
-	<form method="post" action="search_index.html">
-		<td><input type="submit" value="继续检索"></td> 
-	</form>
-
-	<form method="post" action="index.html">
-		<td><input type="submit" value="回到首页"></td> 
-	</form>

@@ -14,7 +14,7 @@
 	$remark = $_POST['remark'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
@@ -23,7 +23,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into pgm_sequence_info values('{$sample_library_p_id}','{$flows}','{$chip_type}','{$onto_concentration}','{$require_read}','{$data_path}','{$remark}')";
+	$sqlinsert="insert into pgm_sequence_info (sample_library_p_id, flows, chip_type, onto_concentration, require_read, data_path, remark) values('{$sample_library_p_id}','{$flows}','{$chip_type}','{$onto_concentration}','{$require_read}','{$data_path}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

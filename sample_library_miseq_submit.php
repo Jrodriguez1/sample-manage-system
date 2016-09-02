@@ -22,7 +22,7 @@
 	$remark = $_POST['remark'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
@@ -31,7 +31,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_library_miseq values('{$sample_library_m_id}','{$onto_miseq_date}','{$sample_name}','{$project_info}','{$resource}','{$lib_prep_input}','{$extract_lib_prep_method}','{$i7_index_id}','{$index1}','{$i5_index_id}','{$index2}','{$lib_qubit_concentration}','{$lib_qpcr_concentration}','{$library_wiki_path}','{$remark}')";
+	$sqlinsert="insert into sample_library_miseq (sample_library_m_id, onto_miseq_date, sample_name, project_info, resource, lib_prep_input, extract_lib_prep_method, i7_index_id, index1, i5_index_id, index2, lib_qubit_concentration, lib_qpcr_concentration, library_wiki_path, remark) values('{$sample_library_m_id}','{$onto_miseq_date}','{$sample_name}','{$project_info}','{$resource}','{$lib_prep_input}','{$extract_lib_prep_method}','{$i7_index_id}','{$index1}','{$i5_index_id}','{$index2}','{$lib_qubit_concentration}','{$lib_qpcr_concentration}','{$library_wiki_path}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);

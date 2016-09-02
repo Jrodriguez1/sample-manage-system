@@ -19,7 +19,7 @@
 	$remark = $_POST['remark'];
 	 
 	//通过php连接到mysql数据库
-	$conn=mysql_connect("127.0.0.1:3306","root","");
+	$conn=mysql_connect("127.0.0.1:3306","root","cailun781");
 	 
 	//选择数据库
 	mysql_select_db("sampledb");
@@ -28,7 +28,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_library_nextseq_run values('{$sample_library_m_id}','{$onto_nextseq_date}','{$submitter}','{$sample_name}','{$project_info}','{$seq_mode}','{$require_read}','{$i7_index_id}','{$index1}','{$i5_index_id}','{$index2}','{$remark}')";
+	$sqlinsert="insert into sample_library_nextseq_run (sample_library_m_id, onto_nextseq_date, submitter, sample_name, project_info, seq_mode, require_read, i7_index_id, index1, i5_index_id, index2, remark) values('{$sample_library_m_id}','{$onto_nextseq_date}','{$submitter}','{$sample_name}','{$project_info}','{$seq_mode}','{$require_read}','{$i7_index_id}','{$index1}','{$i5_index_id}','{$index2}','{$remark}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);
