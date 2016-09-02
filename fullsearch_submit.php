@@ -12,6 +12,7 @@
 	$select_data = $_POST['select_data'];
 
 	$sph = new SphinxClient();            //实例化 sphinx 对象
+
 	$sph->SetServer('127.0.0.1',9312);    //连接9312端口
 	$sph->SetMatchMode(SPH_MATCH_ANY);    //设置匹配方式
 	$sph->SetSortMode(SPH_SORT_RELEVANCE);    //查询结果根据相似度排序
