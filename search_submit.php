@@ -71,21 +71,45 @@
 		//设置客户端和连接字符集
 		mysql_query("set names utf8");
 
-		// echo $id;
-		// print_r($select_data);
-		$sqlselect="select * from sample where id = '{$id}' order by id";
-		$result=mysql_query($sqlselect);
-		if ($result = mysql_fetch_array($result)) {
-			$i = 0;
-			while ($select_data[$i]) {
-				corr_entry($select_data[$i]);
-				echo $result[$select_data[$i]];
+		$count = 0;
+		while ($id[$count]) {
+			//print_r('<pre>');
+			//print_r($id);
+			$res = $id[$count];
+			$res = $res['id'];
+			
+			$sqlselect="select * from sample where id = '{$res}' order by id";
+                	$result=mysql_query($sqlselect);
+
+                	if ($result = mysql_fetch_array($result)) {
+                	      $i = 0;
+                	      while ($select_data[$i]) {
+                	              corr_entry($select_data[$i]);
+                	              echo $result[$select_data[$i]];
+                	              echo "<br>";
+                	              $i = $i + 1;
+                	      }
 				echo "<br>";
-				$i = $i + 1;
-			}
-		} else {
-			echo "查询失败，请请检查输入信息是否有误";
+                	} else {
+                	      echo "查询失败，请请检查输入信息是否有误";
+                	}
+			
+			$count++;
 		}
+		//$sqlselect="select * from sample where id = '{$id}' order by id";
+		//$result=mysql_query($sqlselect);
+
+		//if ($result = mysql_fetch_array($result)) {
+		//	$i = 0;
+		//	while ($select_data[$i]) {
+		//		corr_entry($select_data[$i]);
+		//		echo $result[$select_data[$i]];
+		//		echo "<br>";
+		//		$i = $i + 1;
+		//	}
+		//} else {
+		//	echo "查询失败，请请检查输入信息是否有误";
+		//}
 		mysql_close($conn);
 	}
  
