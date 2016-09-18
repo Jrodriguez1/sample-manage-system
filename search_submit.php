@@ -60,58 +60,76 @@
 	function corr_table($entry_name) {
 		switch ($entry_name) {
 		case "1":
-			return "select * from sample where id = '{$res}' order by id";
+			$res1 = "select * from sample where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "2":
-			return "select * from sample_use_info where id = '{$res}' order by id";
+			$res1 = "select * from sample_use_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "3":
-			return "select * from client_info where id = '{$res}' order by id";
+			$res1 = "select * from client_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "4":
-			return "select * from sample_name_corresponding where id = '{$res}' order by id";
+			$res1 = "select * from sample_name_corresponding where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "5":
-			return "select * from sample_dna_info where id = '{$res}' order by id";
+			$res1 = "select * from sample_dna_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "6":
-			return "select * from dna_use_info where id = '{$res}' order by id";
+			$res1 = "select * from dna_use_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "7":
-			return "select * from sample_rna_info where id = '{$res}' order by id";
+			$res1 = "select * from sample_rna_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "8":
-			return "select * from rna_use_info where id = '{$res}' order by id";
+			$res1 = "select * from rna_use_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "9":
-			return "select * from sample_library_info where id = '{$res}' order by id";
+			$res1 = "select * from sample_library_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "10":
-			return "select * from library_use_info where id = '{$res}' order by id";
+			$res1 = "select * from library_use_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "11":
-			return "select * from sample_capture_library_info where id = '{$res}' order by id";
+			$res1 = "select * from sample_capture_library_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "12":
-			return "select * from capture_library_use_info where id = '{$res}' order by id";
+			$res1 = "select * from capture_library_use_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "13":
-			return "select * from sample_library_miseq where id = '{$res}' order by id";
+			$res1 = "select * from sample_library_miseq where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "14":
-			return "select * from miseq_sequence_info where id = '{$res}' order by id";
+			$res1 = "select * from miseq_sequence_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "15":
-			return "select * from sample_library_nextseq_run where id = '{$res}' order by id";
+			$res1 = "select * from sample_library_nextseq_run where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "16":
-			return "select * from nextseq_sequence_info where id = '{$res}' order by id";
+			$res1 = "select * from nextseq_sequence_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "17":
-			return "select * from sample_library_pgm where id = '{$res}' order by id";
+			$res1 = "select * from sample_library_pgm where id = '{$res}' order by id";
+			return $res1;
 			break;
 		case "18":
-			return "select * from pgm_sequence_info where id = '{$res}' order by id";
+			$res1 = "select * from pgm_sequence_info where id = '{$res}' order by id";
+			return $res1;
 			break;
 		default:
 			echo "未选择查询数据";
