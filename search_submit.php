@@ -57,8 +57,69 @@
 		}
 	}
 
+	function corr_table($entry_name) {
+		switch ($entry_name) {
+		case "1":
+			return "select * from sample where id = '{$res}' order by id";
+			break;
+		case "2":
+			return "select * from sample_use_info where id = '{$res}' order by id";
+			break;
+		case "3":
+			return "select * from client_info where id = '{$res}' order by id";
+			break;
+		case "4":
+			return "select * from sample_name_corresponding where id = '{$res}' order by id";
+			break;
+		case "5":
+			return "select * from sample_dna_info where id = '{$res}' order by id";
+			break;
+		case "6":
+			return "select * from dna_use_info where id = '{$res}' order by id";
+			break;
+		case "7":
+			return "select * from sample_rna_info where id = '{$res}' order by id";
+			break;
+		case "8":
+			return "select * from rna_use_info where id = '{$res}' order by id";
+			break;
+		case "9":
+			return "select * from sample_library_info where id = '{$res}' order by id";
+			break;
+		case "10":
+			return "select * from library_use_info where id = '{$res}' order by id";
+			break;
+		case "11":
+			return "select * from sample_capture_library_info where id = '{$res}' order by id";
+			break;
+		case "12":
+			return "select * from capture_library_use_info where id = '{$res}' order by id";
+			break;
+		case "13":
+			return "select * from sample_library_miseq where id = '{$res}' order by id";
+			break;
+		case "14":
+			return "select * from miseq_sequence_info where id = '{$res}' order by id";
+			break;
+		case "15":
+			return "select * from sample_library_nextseq_run where id = '{$res}' order by id";
+			break;
+		case "16":
+			return "select * from nextseq_sequence_info where id = '{$res}' order by id";
+			break;
+		case "17":
+			return "select * from sample_library_pgm where id = '{$res}' order by id";
+			break;
+		case "18":
+			return "select * from pgm_sequence_info where id = '{$res}' order by id";
+			break;
+		default:
+			echo "未选择查询数据";
+		}
+	}
+
 	//SQL获取信息
-	function get_data($id, $select_data) {
+	function get_data($id, $select_data, $colname) {
 		//开启session
 		session_start();
 
@@ -76,23 +137,25 @@
 			//print_r('<pre>');
 			//print_r($id);
 			$res = $id[$count];
+			$table_id = $res['attrs'];
+			$table_id = $table_id['table_id'];
 			$res = $res['id'];
-			
-			$sqlselect="select * from sample where id = '{$res}' order by id";
-                	$result=mysql_query($sqlselect);
+			$sqlselect=corr_table($table_id);
+			$result=mysql_query($sqlselect);
 
-                	if ($result = mysql_fetch_array($result)) {
-                	      $i = 0;
-                	      while ($select_data[$i]) {
-                	              corr_entry($select_data[$i]);
-                	              echo $result[$select_data[$i]];
-                	              echo "<br>";
-                	              $i = $i + 1;
-                	      }
+			if ($result = mysql_fetch_array($result)) {
+				$i = 0;
+				while ($colname[$i]) {
+					echo $colname[$i];
+					echo "：";
+					echo $result[$colname[$i];
+					echo "<br>";
+					$i = $i + 1;
+				}
 				echo "<br>";
-                	} else {
-                	      echo "查询失败，请请检查输入信息是否有误";
-                	}
+			} else {
+				echo "查询失败，请请检查输入信息是否有误";
+			}
 			
 			$count++;
 		}

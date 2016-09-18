@@ -21,14 +21,11 @@
 
 	$index = '*'; //索引源是配置文件中的 index 类，如果有多个索引源可使用,号隔开：'email,diary' 或者使用'*'号代表全部索引源
 	$result = $sph->Query ($search_info, $index);
-
-	print_r('<pre>');
-	print_r($result);
 	
-	//$colname = $result['fields'];
+	$colname = $result['fields'];
 	$result = $result['matches'];
 	
-	//get_data($result, $select_data);
+	get_data($result, $select_data, $colname);
 
 	// $id = $result["matches"];
 	// echo $id;
