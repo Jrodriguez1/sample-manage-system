@@ -26,7 +26,7 @@
 	mysql_query("set names utf8");
 
 	//通过php进行insert操作
-	$sqlinsert="insert into sample_library_pgm (sample_library_p_id, pgm_plan_name, sample_name, project_info, resource, lib_prep_input, extract_lib_prep_method, lib_qubit_concentration, index, lib_qpcr_concentration) values('{$sample_library_p_id}','{$pgm_plan_name}','{$sample_name}','{$project_info}','{$resource}','{$lib_prep_input}','{$extract_lib_prep_method}','{$lib_qubit_concentration}','{$index}','{$lib_qpcr_concentration}')";
+	$sqlinsert="insert into sample_library_pgm (sample_library_p_id, pgm_plan_name, sample_name, project_info, resource, lib_prep_input, extract_lib_prep_method, lib_qubit_concentration, index1, lib_qpcr_concentration) values('{$sample_library_p_id}','{$pgm_plan_name}','{$sample_name}','{$project_info}','{$resource}','{$lib_prep_input}','{$extract_lib_prep_method}','{$lib_qubit_concentration}','{$index}','{$lib_qpcr_concentration}')";
 
 	//添加用户信息到数据库
 	$test = mysql_query($sqlinsert);
